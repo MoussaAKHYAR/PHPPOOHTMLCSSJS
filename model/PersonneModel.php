@@ -22,5 +22,15 @@ class PersonneModel extends Db
     }
     
   }
+
+  function login($login , $password)
+  {
+    $sql = "SELECT * FROM personne  WHERE login = '$login'  AND password = '$password'";
+    try {
+      return $this->db->query($sql)->fetch();//on execute la requete
+    }catch (PDOException $e) {
+      $e->getMessage();
+    }
+  }
 }
 ?>

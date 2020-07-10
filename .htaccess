@@ -1,4 +1,4 @@
-RewriteEngine on
+RewriteEngine On
 
 RewriteRule ^login$ view/login/login.php
 RewriteRule ^accueil$ accueil.php
