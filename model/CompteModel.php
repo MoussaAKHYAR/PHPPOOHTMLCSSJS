@@ -8,18 +8,6 @@ class CompteModel extends Db{
     parent::__construct();
   }
 
-  function addCompte(Compte $compte){
-
-    $sql = "INSERT INTO compte   VALUES('{$compte->getNumero()}','{$compte->getMat()}','{$compte->getId()}','{$compte->getRib()}','{$compte->getSolde()}','{$compte->getDateOuverture()}','{$compte->getRaisonSocial()}','{$compte->getSalaire()}','{$compte->getNomEmpl()}','{$compte->getTelEmpl()}','{$compte->getNumeroIdentification()}','{$compte->getAgios()}','{$compte->getFraisOuverture()}','{$compte->getRemuneration()}','{$compte->getDateDebut()}','{$compte->getDateFin()}','{$compte->getTypeCompte()}')";
-  
-    // si la connexion passe
-    try {
-        return $this->db->exec($sql);//on execute la requete
-    }catch (PDOException $e) {
-      $e->getMessage();
-    }
-
-  }
   function addCompteSimple(Compte $compte)
   {
     // INSERT INTO `compte`(`numero`, `mat`, `rib`, `dateOuverture`, `fraisOuverture`, `remuneration`,`typeCompte`) VALUES ("147852","14422",12,"2018-02-16",3000,2000,2)
@@ -41,7 +29,19 @@ class CompteModel extends Db{
 
   }
 
-  function ajouterCompte()
+  // function addCompte(Compte $compte){
+
+  //   $sql = "INSERT INTO compte   VALUES('{$compte->getNumero()}','{$compte->getMat()}','{$compte->getId()}','{$compte->getRib()}','{$compte->getSolde()}','{$compte->getDateOuverture()}','{$compte->getRaisonSocial()}','{$compte->getSalaire()}','{$compte->getNomEmpl()}','{$compte->getTelEmpl()}','{$compte->getNumeroIdentification()}','{$compte->getAgios()}','{$compte->getFraisOuverture()}','{$compte->getRemuneration()}','{$compte->getDateDebut()}','{$compte->getDateFin()}','{$compte->getTypeCompte()}')";
+  
+  //   // si la connexion passe
+  //   try {
+  //       return $this->db->exec($sql);//on execute la requete
+  //   }catch (PDOException $e) {
+  //     $e->getMessage();
+  //   }
+
+  // }
+    function ajouterCompteCourant()
   {
     $sql = $this->db->prepare("INSERT INTO compte (numero, mat, rib, dateOuverture, fraisOuverture,remuneration,typeCompte) VALUES(:numero,:mat,:rib,:dateOuverture,:fraisOuverture,:remuneration,:typeCompte)");
 
@@ -61,4 +61,4 @@ class CompteModel extends Db{
   
 
 }
-?> 
+?>
