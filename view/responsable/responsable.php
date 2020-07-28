@@ -1,10 +1,10 @@
-<!-- <?php
-// session_start();
-// if ($_SESSION['nom'] == "") {
-//     header("location:login");
-// }
+<?php
+session_start();
+if ($_SESSION['nom'] == "") {
+    header("location:login");
+}
 
-?> -->
+?> 
 <!DOCTYPE html>
 <html lang="fr">
 <head>

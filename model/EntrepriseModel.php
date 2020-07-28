@@ -19,6 +19,20 @@ class EntrepriseModel extends Db{
   
   //   return $conn->lastInsertId();
   // }
+
+  function addClientEntrprise(Entreprise $entreprise)
+  {
+    $sql = $this->db->prepare("INSERT INTO entreprise (nom,tel,email,login,password,adrEntreprise) VALUES(:nom,:tel,:email,:login,:password,:adrEntreprise)");
+
+    $sql->bindParam(':nom',$nom);
+    $sql->bindParam(':tel',$tel);
+    $sql->bindParam(':email',$email);
+    $sql->bindParam(':login',$login);
+    $sql->bindParam(':password',$password);
+    $sql->bindParam(':adrEntreprise',$adrEntreprise);
+
+    // $sql->execute(['nom' => $nom , 'tel' => $tel, 'email' => $email ,'login' =>$login , 'password' => $password,'adrEntreprise' =>$adrEntreprise]);
+  }
 }
 
 ?>

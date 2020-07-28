@@ -1,5 +1,4 @@
 <?php
-
 class Db{
 
   protected $db;// propriete ou attribut d'une class
@@ -26,9 +25,7 @@ class Db{
           die('Error : '.$ex->getMessage());
           //la fonction die() nous permet d'arreter le scripte et renvoie une message d'erreur
       }
-
       return $conn;// on retoure la chanie de connexion
-
   }
 
 }

@@ -12,7 +12,7 @@ class PersonneModel extends Db
   // Ajouter les fonctions du crud
   function addClientPhysique(Personne $personne){
 
-    $sql = "INSERT INTO personne VALUES('$personne->getMatricule()','$personne->getCni()','$personne->getNom()','$personne->getPrenom()','$personne->getSexe()','$personne->getDateNaiss()','$personne->getTelephone()','$personne->getAdrPersonne()','$personne->getEmail()',null,null)";
+    $sql = "INSERT INTO personne VALUES('{$personne->getMatricule()}','{$personne->getCin()}','{$personne->getNom()}','{$personne->getPrenom()}','{$personne->getSexe()}','{$personne->getDateNaiss()}','{$personne->getTelephone()}','{$personne->getAdrPersonne()}','{$personne->getEmail()}',null,null)";
 
     // si la connexion passe
     try {
@@ -20,9 +20,7 @@ class PersonneModel extends Db
     }catch (PDOException $e) {
       $e->getMessage();
     }
-    
   }
-
   function login($login , $password)
   {
     $sql = "SELECT * FROM personne  WHERE login = '$login'  AND password = '$password'";
